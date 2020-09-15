@@ -79,6 +79,8 @@ func Test_CDFilesPath(t *testing.T) {
 		"-drive", "file=fake_cd_path.iso,index=1,media=cdrom ",
 	}
 
+	assert.ElementsMatch(t, args, expected, fmt.Sprintf("unexpected generated args: %#v", args))
+
 	// cd_path is set and DiskImage is true
 	config := &Config{
 		DiskImage:     true,
