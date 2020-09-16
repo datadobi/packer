@@ -519,13 +519,13 @@ func TestBuilderPrepare_SSHPrivateKey(t *testing.T) {
 	}
 
 	// Test good contents
-	if err := tf.Seek(0, 0); err != nil {
+	if _, err := tf.Seek(0, 0); err != nil {
 		t.Fatalf("errorf getting key")
 	}
 	if err := tf.Truncate(0); err != nil {
 		t.Fatalf("errorf getting key")
 	}
-	if err := tf.Write([]byte(testPem)); err != nil {
+	if _, err := tf.Write([]byte(testPem)); err != nil {
 		t.Fatalf("errorf getting key")
 	}
 	config["ssh_private_key_file"] = tf.Name()
